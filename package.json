@@ -21,13 +21,7 @@
     "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.4.0",
-    "prettier": "^2.6.2"
-  },
-  "lint-staged": {
-    "*.js": [
-      "next lint --file",
-      "prettier --write"
-    ],
-    "*.{css,json}": "prettier --write"
+    "prettier": "^2.6.2",
+    "sass": "^1.50.1"
   }
 }
