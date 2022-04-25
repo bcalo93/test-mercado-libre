@@ -1,0 +1,7 @@
+@use '../../styles/spaces.module.scss' as spaces;
+@use '../../styles/colors.module.scss' as colors;
+
+.header {
+  padding: spaces.$large-space spaces.$x-large-space;
+  background-color: colors.$brand-color;
+}
