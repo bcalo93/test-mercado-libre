@@ -1,3 +1,14 @@
+@use '../../styles/spaces.module.scss' as spaces;
+
 .form {
   display: flex;
+}
+
+.form-text-box {
+  flex-grow: 1;
+  padding: spaces.$small-space spaces.$large-space;
+}
+
+.form-search-button {
+  position: relative;
 }
