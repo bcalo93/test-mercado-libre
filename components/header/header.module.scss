@@ -3,7 +3,7 @@
 @use '../../styles/base-layout.module.scss';
 
 .header {
-  padding: spaces.$large-space spaces.$x-large-space;
+  padding: spaces.$large-space 0;
   background-color: colors.$brand-color;
 }
 
