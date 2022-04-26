@@ -5,3 +5,12 @@
   padding: spaces.$large-space spaces.$x-large-space;
   background-color: colors.$brand-color;
 }
+
+.header-content-wrapper {
+  display: flex;
+  gap: spaces.$x-large-space;
+}
+
+.header-search-box {
+  flex-grow: 1;
+}
