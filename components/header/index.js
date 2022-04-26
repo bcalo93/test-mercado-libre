@@ -4,7 +4,7 @@ import styles from './header.module.scss'
 export default function Header() {
   return (
     <header className={styles.header}>
-      <SearchBox />
+      <SearchBox placeholder="Nunca dejes de buscar" />
     </header>
   )
 }

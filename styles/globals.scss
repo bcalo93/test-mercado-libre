@@ -11,6 +11,15 @@ a {
   text-decoration: none;
 }
 
+button,
+input {
+  border: none;
+}
+
 * {
   box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: none;
 }

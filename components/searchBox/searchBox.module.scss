@@ -1,7 +1,8 @@
-@use '../../styles/spaces.module.scss' as spaces;
+@use '../../styles/spacing.module.scss' as spaces;
 
 .form {
   display: flex;
+  height: 34px;
 }
 
 .form-text-box {
@@ -10,5 +11,8 @@
 }
 
 .form-search-button {
-  position: relative;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

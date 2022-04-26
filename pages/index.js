@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Layout from '../components/layout'
 
 export default function Home() {
@@ -12,9 +11,7 @@ export default function Home() {
           content="Encontrá aquel producto que estas buscando."
         />
       </Head>
-      <Layout>
-        <Link href="/items">Click Me</Link>
-      </Layout>
+      <Layout />
     </>
   )
 }
