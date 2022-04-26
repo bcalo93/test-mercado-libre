@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "start:backend": "yarn workspace server start",
     "lint": "next lint",
     "prepare": "husky install",
     "prettier": "prettier --write \"**/*.{js,json,css}\""
@@ -24,5 +25,8 @@
     "lint-staged": "^12.4.0",
     "prettier": "^2.6.2",
     "sass": "^1.50.1"
-  }
+  },
+  "workspaces": [
+    "server"
+  ]
 }
