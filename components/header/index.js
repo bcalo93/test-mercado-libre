@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import SearchBox from '../searchBox'
@@ -6,7 +7,12 @@ import styles from './header.module.scss'
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles['header-content-wrapper']}>
+      <div
+        className={classNames(
+          styles['layout-container'],
+          styles['header-content-wrapper']
+        )}
+      >
         <Link href="/">
           <a>
             <Image

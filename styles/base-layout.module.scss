@@ -1,0 +1,8 @@
+$page-width: 95vw;
+$page-max-width: 70rem;
+
+.layout-container {
+  width: $page-width;
+  max-width: $page-max-width;
+  margin: auto;
+}
