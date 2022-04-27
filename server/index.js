@@ -1,8 +1,11 @@
 import express from 'express'
+import router from './controllers/router.js'
 
 const app = express()
-app.use('/items', (req, res, next) => {
-  res.json({ user: 'pepe' }).status(201)
-})
-app.listen(3002)
-console.info('server started at port 3001')
+
+app.use(router)
+
+const port = parseInt(process.env.PORT) || 3001
+
+app.listen(port)
+console.info(`server started at port ${port}`)
