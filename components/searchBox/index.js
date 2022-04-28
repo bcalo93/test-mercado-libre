@@ -1,12 +1,20 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styles from './searchBox.module.scss'
 
 export default function SearchBox({ className, placeholder }) {
   const [searchTerm, setSearchTerm] = useState('')
   const router = useRouter()
+
+  useEffect(() => {
+    const { search } = router.query
+    if (!router.isReady || !search) {
+      return
+    }
+    setSearchTerm(search)
+  }, [router.isReady])
 
   const handleSubmit = (event) => {
     event.preventDefault()
