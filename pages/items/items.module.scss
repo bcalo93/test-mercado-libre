@@ -1,0 +1,8 @@
+@use '../../styles/spacing.module.scss' as spacing;
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: spacing.$x-large-space;
+}

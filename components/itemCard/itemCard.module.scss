@@ -1,0 +1,24 @@
+@use '../../styles/spacing.module.scss' as spacing;
+
+.card {
+  display: flex;
+  padding: spacing.$medium-space;
+}
+
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$medium-space;
+  flex-grow: 1;
+}
+
+.card-item_price {
+  display: flex;
+  gap: spacing.$medium-space;
+}
+
+.card-item_location {
+  min-width: 132px;
+  display: flex;
+  align-items: center;
+}
