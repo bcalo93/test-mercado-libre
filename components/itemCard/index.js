@@ -10,7 +10,11 @@ export default function ItemCard({ item }) {
       <div className={styles['card-detail']}>
         <div className={styles['card-item_price']}>
           <span>{price.amount}</span>
-          <Image src="/images/ic_shipping.png" width="15" height="15" />
+          {free_shipping ? (
+            <Image src="/images/ic_shipping.png" width="15" height="15" />
+          ) : (
+            ''
+          )}
         </div>
         <Link href={`/items/${id}`}>
           <a>{title}</a>

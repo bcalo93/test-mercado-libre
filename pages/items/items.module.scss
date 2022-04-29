@@ -1,8 +1,19 @@
 @use '../../styles/spacing.module.scss' as spacing;
+@use '../../styles/colors.module.scss' as colors;
 
 .items-list {
   display: flex;
   flex-direction: column;
   background-color: white;
   margin-top: spacing.$x-large-space;
+  padding: spacing.$medium-space;
+}
+
+.items-list > :not(:last-child) {
+  border-bottom: 1px solid colors.$default-background-color;
+  padding-bottom: spacing.$medium-space;
+}
+
+.items-list > :not(:first-child) {
+  padding-top: spacing.$medium-space;
 }

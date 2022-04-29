@@ -2,7 +2,7 @@
 
 .card {
   display: flex;
-  padding: spacing.$medium-space;
+  gap: spacing.$medium-space;
 }
 
 .card-detail {
