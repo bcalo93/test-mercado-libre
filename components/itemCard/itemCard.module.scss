@@ -3,28 +3,42 @@
 
 .card {
   display: flex;
-  gap: spacing.$medium-space;
+  gap: spacing.$small-space;
+}
+
+.card-picture {
+  height: auto;
+  min-width: 14rem;
 }
 
 .card-detail {
   color: #363636;
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  font-size: typography.$text-large;
   gap: spacing.$medium-space;
-  padding-top: spacing.$medium-space;
 }
 
-.card-item_price {
-  font-size: typography.$text-large-2xl;
+.card-detail > * {
+  padding-top: spacing.$x-large-space;
+}
+
+.card-item_additional-info {
+  font-size: typography.$text-large-3xl;
   display: flex;
   gap: spacing.$medium-space;
+  align-items: center;
 }
 
 .card-item_location {
-  align-items: center;
   color: #717171;
   display: flex;
+  align-self: flex-end;
+  font-size: typography.$text-base;
   min-width: 8.25rem;
+  margin-left: auto;
+  margin-right: spacing.$large-space;
+}
+
+.card-item_title {
+  font-size: typography.$text-large-xl;
+  max-width: 70%;
 }
