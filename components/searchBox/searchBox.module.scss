@@ -1,17 +1,18 @@
 @use '../../styles/spacing.module.scss' as spaces;
+@use '../../styles/typography.module.scss' as typography;
 
 .form {
   display: flex;
-  height: 2.125rem;
 }
 
 .form-text-box {
+  font-size: typography.$text-large-xl;
   flex-grow: 1;
   padding: spaces.$small-space spaces.$large-space;
 }
 
 .form-search-button {
-  width: 2.125rem;
+  width: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
