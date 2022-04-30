@@ -10,9 +10,7 @@ export default function ItemCard({ item }) {
       <img src={picture} alt={title} />
       <div className={styles['card-detail']}>
         <div className={styles['card-item_price']}>
-          <span>
-            <Price amount={price.amount} currency={price.currency} />
-          </span>
+          <Price amount={price.amount} currency={price.currency} />
           {free_shipping ? (
             <Image src="/images/ic_shipping.png" width="15" height="15" />
           ) : (

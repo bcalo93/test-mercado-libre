@@ -11,7 +11,7 @@ export default function Price({ amount, currency, maxFractionDigits = 0 }) {
         maximumFractionDigits: maxFractionDigits,
       })
     )
-  }, [currency])
+  }, [currency, maxFractionDigits])
 
   return formatter ? <span>{formatter.format(amount)}</span> : ''
 }

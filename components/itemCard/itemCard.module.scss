@@ -1,4 +1,5 @@
 @use '../../styles/spacing.module.scss' as spacing;
+@use '../../styles/typography.module.scss' as typography;
 
 .card {
   display: flex;
@@ -6,20 +7,24 @@
 }
 
 .card-detail {
+  color: #363636;
   display: flex;
   flex-direction: column;
-  gap: spacing.$medium-space;
   flex-grow: 1;
+  font-size: typography.$text-large;
+  gap: spacing.$medium-space;
   padding-top: spacing.$medium-space;
 }
 
 .card-item_price {
+  font-size: typography.$text-large-2xl;
   display: flex;
   gap: spacing.$medium-space;
 }
 
 .card-item_location {
-  min-width: 8.25rem;
-  display: flex;
   align-items: center;
+  color: #717171;
+  display: flex;
+  min-width: 8.25rem;
 }
