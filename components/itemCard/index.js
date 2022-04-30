@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Price from '../price'
 import styles from './itemCard.module.scss'
 
 export default function ItemCard({ item }) {
@@ -9,7 +10,9 @@ export default function ItemCard({ item }) {
       <img src={picture} alt={title} />
       <div className={styles['card-detail']}>
         <div className={styles['card-item_price']}>
-          <span>{price.amount}</span>
+          <span>
+            <Price amount={price.amount} currency={price.currency} />
+          </span>
           {free_shipping ? (
             <Image src="/images/ic_shipping.png" width="15" height="15" />
           ) : (
