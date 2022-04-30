@@ -1,4 +1,5 @@
 @use './colors.module.scss' as colors;
+@use './breakpoints.module.scss' as breakpoints;
 
 html,
 body {
@@ -26,4 +27,10 @@ input {
 
 :focus-visible {
   outline: none;
+}
+
+@media (max-width: breakpoints.$mobile-breakpoint) {
+  html {
+    font-size: 10px;
+  }
 }

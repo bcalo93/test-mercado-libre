@@ -1,5 +1,6 @@
 @use '../../styles/spacing.module.scss' as spacing;
 @use '../../styles/typography.module.scss' as typography;
+@use '../../styles/breakpoints.module.scss' as breakpoints;
 
 .card {
   display: flex;
@@ -40,5 +41,20 @@
 
 .card-item_title {
   font-size: typography.$text-large-xl;
-  max-width: 70%;
+}
+
+@media (min-width: breakpoints.$mobile-breakpoint) {
+  .card-item_title {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: breakpoints.$mobile-breakpoint) {
+  .card-picture {
+    min-width: 11rem;
+  }
+
+  .card-item_location {
+    display: none;
+  }
 }
