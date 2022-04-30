@@ -1,7 +1,10 @@
 import fetch from 'node-fetch'
+import HttpError from '../errors/httpError.js'
 
 const SEARCH_API_URL =
   'https://api.mercadolibre.com/sites/MLA/search?limit=4&q='
+
+const ITEMS_API_URL = 'https://api.mercadolibre.com/items'
 
 // TODO DELETE
 const DUMMY = {
@@ -65,44 +68,81 @@ export default class ItemController {
   async getItems(req, res, next) {
     const { search } = req.query
     if (!search) {
-      throw new Error('search param is missing')
+      next(new HttpError('search param is missing', 400))
+      return
     }
 
-    //res.json(await this.makeRequest(`${SEARCH_API_URL}${search}`))
+    try {
+      const { results } = await this.makeRequest(`${SEARCH_API_URL}${search}`)
+      res.json({
+        items: results.map(this.normalizeSearchProps.bind(this)),
+      })
 
-    // TODO: DELETE
-    res.json(DUMMY)
-    next()
+      // TODO: DELETE
+      //res.json(DUMMY)
+      next()
+    } catch (error) {
+      next(error)
+    }
   }
 
   async getItemById(req, res, next) {
-    throw new Error('not implemented')
+    const { id } = req.params
+    if (!id) {
+      next(new HttpError('missing id in the path', 400))
+      return
+    }
+
+    try {
+      const [item, itemDescription] = await Promise.all([
+        this.makeRequest(`${ITEMS_API_URL}/${id}`),
+        this.makeRequest(`${ITEMS_API_URL}/${id}/description`),
+      ])
+      res.json({ item: this.normalizeItemProps(item, itemDescription) })
+      next()
+    } catch (error) {
+      next(error)
+    }
   }
 
   async makeRequest(url) {
     const response = await fetch(url)
-    if (response.status !== 200) {
-      throw new Error('something went wrong')
+    const result = await response.json()
+    if (!response.ok) {
+      throw new HttpError(result.message, response.status)
     }
 
-    return this.normalizeData(await response.json())
+    return result
   }
 
-  normalizeData({ results }) {
+  normalizeCommonProps(item) {
     return {
-      items: results.map((item) => ({
-        id: item.id,
-        title: item.title,
-        price: {
-          currency: item.currency_id,
-          amount: item.price,
-        },
-        picture: item.thumbnail,
-        free_shipping: item.shipping.free_shipping,
-        address: {
-          state: item.address.state_name,
-        },
-      })),
+      id: item.id,
+      title: item.title,
+      price: {
+        currency: item.currency_id,
+        amount: item.price,
+      },
+      picture: item.thumbnail,
+      free_shipping: item.shipping.free_shipping,
+    }
+  }
+
+  normalizeSearchProps(item) {
+    return {
+      ...this.normalizeCommonProps(item),
+      address: {
+        state: item.address.state_name,
+      },
+    }
+  }
+
+  normalizeItemProps(item, { plain_text }) {
+    return {
+      ...this.normalizeCommonProps(item),
+      condition: item.condition,
+      sold_quantity: item.sold_quantity,
+      description: plain_text,
     }
   }
 }
