@@ -1,8 +1,12 @@
+@use '../../styles/spacing.module.scss' as spacing;
+@use '../../styles/typography.module.scss' as typography;
+
 .item {
   display: grid;
   grid-template-columns: 70% auto;
   row-gap: 5rem;
   column-gap: 1rem;
+  padding: spacing.$small-space;
 }
 
 .item-picture {
@@ -13,11 +17,15 @@
 }
 
 .item-description {
-  h1 {
+  font-weight: typography.$font-weight-normal;
+
+  h2 {
     color: #363636;
+    font-size: typography.$text-large-2xl;
   }
 
   p {
     color: #989898;
+    font-size: typography.$text-large;
   }
 }

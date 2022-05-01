@@ -21,10 +21,10 @@ export default function ItemPage({ item }) {
             title={item.title}
           />
         </div>
-        <div className={styles['item-description']}>
+        <section className={styles['item-description']}>
           <h2>Descripción del producto</h2>
           <p>{item.description}</p>
-        </div>
+        </section>
       </article>
     </Layout>
   )
