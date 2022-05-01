@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import classNames from 'classnames'
 import Header from '../header'
 import styles from './layout.module.scss'
 
@@ -11,7 +12,9 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <main className={styles.main}>
-        <div className={styles['layout-container']}>{children}</div>
+        <div className={classNames(styles['container'], styles['content-box'])}>
+          {children}
+        </div>
       </main>
     </>
   )

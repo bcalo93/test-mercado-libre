@@ -1,6 +1,6 @@
 @use '../../styles/spacing.module.scss' as spaces;
 @use '../../styles/colors.module.scss' as colors;
-@use '../../styles/base-layout.module.scss';
+@use '../../styles/baseLayout.module.scss';
 
 .header {
   padding: spaces.$large-space 0;

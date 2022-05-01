@@ -4,12 +4,6 @@
 $separation: spacing.$x-large-space;
 
 .items-list {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  margin: spacing.$x-large-space 0;
-  padding: $separation;
-
   & > :not(:last-child) {
     border-bottom: 1px solid colors.$default-background-color;
     padding-bottom: $separation;

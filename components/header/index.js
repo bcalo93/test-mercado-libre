@@ -9,7 +9,7 @@ export default function Header() {
     <header className={styles.header}>
       <div
         className={classNames(
-          styles['layout-container'],
+          styles['container'],
           styles['header-content-wrapper']
         )}
       >

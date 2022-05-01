@@ -1,5 +1,16 @@
-@use '../../styles/base-layout.module.scss';
+@use '../../styles/baseLayout.module.scss';
+@use '../../styles/spacing.module.scss' as spacing;
+
+$separation: spacing.$x-large-space;
 
 .main {
   min-height: 100vh;
+}
+
+.content-box {
+  background-color: white;
+  border-radius: 0.25rem;
+  margin-bottom: $separation;
+  margin-top: $separation;
+  padding: $separation;
 }

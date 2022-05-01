@@ -8,3 +8,12 @@ export async function searchItems(search) {
     console.log('something went wrong')
   }
 }
+
+export async function getItemById(id) {
+  try {
+    const response = await fetch(`${BASE_API_URL}/${id}`)
+    return response.json()
+  } catch (err) {
+    console.log('something went wrong')
+  }
+}
