@@ -8,7 +8,7 @@
 
   &:hover .card-item_title {
     color: #0b5cab;
-    font-weight: bold;
+    font-weight: typography.$font-weight-bold;
   }
 }
 
@@ -49,7 +49,7 @@
 
   &::after {
     content: attr(data-text);
-    font-weight: bold;
+    font-weight: typography.$font-weight-bold;
     display: block;
     height: 0;
     pointer-events: none;
