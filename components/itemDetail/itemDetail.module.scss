@@ -9,9 +9,15 @@
 .item-detail_title {
   font-size: typography.$text-large-2xl;
   margin-top: spacing.$small-space;
-  margin-bottom: spacing.$large-space;
+  margin-bottom: spacing.$x4-large-space;
 }
 
 .item-detail_price {
   font-size: typography.$text-large-5xl;
+}
+
+@media (max-width: breakpoints.$small-mobile-breakpoint) {
+  .item-detail_title {
+    margin-bottom: spacing.$medium-space;
+  }
 }
