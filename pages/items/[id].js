@@ -1,14 +1,25 @@
 import Layout from '../../components/layout'
+import ItemDetail from '../../components/itemDetail'
 import { getItemById } from '../../services/itemsApi'
-import styles from './itemDetail.module.scss'
+import styles from './itemPage.module.scss'
 
-export default function ItemDetail({ item }) {
+export default function ItemPage({ item }) {
   return (
     <Layout>
-      <article className={styles['item-detail']}>
-        <img src={item.picture} alt={item.title} />
-        <div>DETAILS</div>
-        <div>description</div>
+      <article className={styles['item']}>
+        <img
+          className={styles['item-picture']}
+          src={item.picture}
+          alt={item.title}
+        />
+
+        <div className={styles['item-detail']}>
+          <ItemDetail />
+        </div>
+        <div className={styles['item-description']}>
+          <h2>Descripción del producto</h2>
+          <p>{item.description}</p>
+        </div>
       </article>
     </Layout>
   )

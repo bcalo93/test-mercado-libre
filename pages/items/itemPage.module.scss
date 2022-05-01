@@ -1,0 +1,16 @@
+.item {
+  display: grid;
+  grid-template-columns: 70% auto;
+  row-gap: 5rem;
+  column-gap: 1rem;
+}
+
+.item-picture {
+  width: 100%;
+}
+
+.item-detail {
+}
+
+.item-description {
+}
