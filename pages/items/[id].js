@@ -14,7 +14,12 @@ export default function ItemPage({ item }) {
         />
 
         <div className={styles['item-detail']}>
-          <ItemDetail />
+          <ItemDetail
+            condition={item.condition}
+            soldQuantity={item.sold_quantity}
+            price={item.price}
+            title={item.title}
+          />
         </div>
         <div className={styles['item-description']}>
           <h2>Descripción del producto</h2>

@@ -1,0 +1,16 @@
+@use '../../styles/spacing.module.scss' as spacing;
+@use '../../styles/typography.module.scss' as typography;
+@use '../../styles/breakpoints.module.scss' as breakpoints;
+
+.item-detail {
+  color: #363636;
+}
+
+.item-detail_title {
+  margin-top: spacing.$small-space;
+  margin-bottom: spacing.$large-space;
+}
+
+.item-detail_price {
+  font-size: typography.$text-large-4xl;
+}

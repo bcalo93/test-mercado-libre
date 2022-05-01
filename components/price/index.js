@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 
-export default function Price({ amount, currency, maxFractionDigits = 0 }) {
+export default function Price({
+  amount,
+  currency,
+  maxFractionDigits = 0,
+  className,
+}) {
   const [formatter, setFormatter] = useState()
 
   useEffect(() => {
@@ -13,5 +18,9 @@ export default function Price({ amount, currency, maxFractionDigits = 0 }) {
     )
   }, [currency, maxFractionDigits])
 
-  return formatter ? <span>{formatter.format(amount)}</span> : ''
+  return formatter ? (
+    <span className={className}>{formatter.format(amount)}</span>
+  ) : (
+    ''
+  )
 }
