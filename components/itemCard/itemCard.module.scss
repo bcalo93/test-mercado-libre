@@ -5,6 +5,11 @@
 .card {
   display: flex;
   gap: spacing.$small-space;
+
+  &:hover .card-item_title {
+    color: #0b5cab;
+    font-weight: bold;
+  }
 }
 
 .card-picture {
@@ -16,10 +21,10 @@
   color: #363636;
   flex-grow: 1;
   gap: spacing.$medium-space;
-}
 
-.card-detail > * {
-  padding-top: spacing.$x-large-space;
+  & > * {
+    padding-top: spacing.$x-large-space;
+  }
 }
 
 .card-item_additional-info {
@@ -41,6 +46,17 @@
 
 .card-item_title {
   font-size: typography.$text-large-xl;
+
+  &::after {
+    content: attr(data-text);
+    font-weight: bold;
+    display: block;
+    height: 0;
+    pointer-events: none;
+    overflow: hidden;
+    visibility: hidden;
+    user-select: none;
+  }
 }
 
 @media (min-width: breakpoints.$mobile-breakpoint) {

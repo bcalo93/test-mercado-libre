@@ -9,13 +9,13 @@ $separation: spacing.$x-large-space;
   background-color: white;
   margin: spacing.$x-large-space 0;
   padding: $separation;
-}
 
-.items-list > :not(:last-child) {
-  border-bottom: 1px solid colors.$default-background-color;
-  padding-bottom: $separation;
-}
+  & > :not(:last-child) {
+    border-bottom: 1px solid colors.$default-background-color;
+    padding-bottom: $separation;
+  }
 
-.items-list > :not(:first-child) {
-  padding-top: $separation;
+  & > :not(:first-child) {
+    padding-top: $separation;
+  }
 }

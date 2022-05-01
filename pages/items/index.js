@@ -21,7 +21,9 @@ export default function ItemsPage() {
     <Layout>
       <div className={styles['items-list']}>
         {items.map((item) => (
-          <ItemCard key={item.id} item={item} />
+          <div key={item.id}>
+            <ItemCard item={item} />
+          </div>
         ))}
       </div>
     </Layout>
