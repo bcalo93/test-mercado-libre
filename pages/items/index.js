@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Layout from '../../components/layout'
 import { searchItems } from '../../services/itemsApi'
 import ItemCard from '../../components/itemCard'
-import styles from './items.module.scss'
+import styles from './itemsPage.module.scss'
 
 export default function ItemsPage() {
   const [data, setData] = useState()

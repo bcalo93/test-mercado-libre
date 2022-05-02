@@ -1,9 +1,9 @@
 import Layout from '../../components/layout'
-import ItemDetail from '../../components/itemDetail'
+import ItemDetailBox from '../../components/itemDetailBox'
 import { getItemById } from '../../services/itemsApi'
-import styles from './itemPage.module.scss'
+import styles from './itemDetailPage.module.scss'
 
-export default function ItemPage({ item }) {
+export default function ItemDetailPage({ item }) {
   return (
     <Layout
       breadcrumbs={item.categories}
@@ -18,7 +18,7 @@ export default function ItemPage({ item }) {
         />
 
         <div className={styles['item-detail']}>
-          <ItemDetail
+          <ItemDetailBox
             condition={item.condition}
             soldQuantity={item.sold_quantity}
             price={item.price}

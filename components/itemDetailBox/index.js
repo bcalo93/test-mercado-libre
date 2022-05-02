@@ -1,5 +1,5 @@
 import Price from '../price'
-import styles from './itemDetail.module.scss'
+import styles from './itemDetailBox.module.scss'
 
 const DEFAULT_CONDITION = 'Sin especificar'
 const CONDITION_TO_LABEL = {
@@ -11,7 +11,12 @@ const CONDITION_TO_LABEL = {
 const normalizeCondition = (condition) =>
   CONDITION_TO_LABEL[condition] || DEFAULT_CONDITION
 
-export default function ItemDetail({ condition, soldQuantity, title, price }) {
+export default function ItemDetailBox({
+  condition,
+  soldQuantity,
+  title,
+  price,
+}) {
   const { amount, currency } = price
   return (
     <div className={styles['item-detail']}>
