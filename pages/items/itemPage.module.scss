@@ -1,6 +1,7 @@
+@use '../../styles/breakpoints.module.scss' as breakpoints;
+@use '../../styles/colors.module.scss' as colors;
 @use '../../styles/spacing.module.scss' as spacing;
 @use '../../styles/typography.module.scss' as typography;
-@use '../../styles/breakpoints.module.scss' as breakpoints;
 
 .item {
   column-gap: spacing.$large-space;
@@ -20,12 +21,12 @@
   overflow: hidden;
 
   h2 {
-    color: #363636;
+    color: colors.$default-text-color;
     font-size: typography.$text-large-2xl;
   }
 
   p {
-    color: #989898;
+    color: colors.$text-color-light-gray;
     font-size: typography.$text-large;
     white-space: break-spaces;
   }

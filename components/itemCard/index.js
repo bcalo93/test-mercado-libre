@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Price from '../price'
 import styles from './itemCard.module.scss'
 
-// TODO: Fix link hover color
 export default function ItemCard({ item }) {
   const { id, address, free_shipping, picture, price, title } = item
   return (

@@ -1,5 +1,6 @@
 @use '../../styles/spacing.module.scss' as spaces;
 @use '../../styles/typography.module.scss' as typography;
+@use '../../styles/colors.module.scss' as colors;
 
 .form {
   display: flex;
@@ -16,5 +17,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ededed;
+  background-color: colors.$default-background-color;
 }

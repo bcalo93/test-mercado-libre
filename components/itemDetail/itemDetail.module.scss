@@ -1,11 +1,12 @@
 @use '../../styles/spacing.module.scss' as spacing;
 @use '../../styles/typography.module.scss' as typography;
 @use '../../styles/breakpoints.module.scss' as breakpoints;
+@use '../../styles/colors.module.scss' as colors;
 
 .item-detail {
   display: flex;
   flex-direction: column;
-  color: #363636;
+  color: colors.$default-text-color;
 }
 
 .item-detail_title {
@@ -20,7 +21,7 @@
 }
 
 .item-detail_button {
-  background-color: #4561ff;
+  background-color: colors.$primary-button-color;
   border-radius: 0.5rem;
   color: white;
   cursor: pointer;
@@ -28,7 +29,7 @@
   padding: spacing.$large-space;
 
   &:hover {
-    background-color: #2968c8;
+    background-color: colors.$primary-button-color-hover;
   }
 }
 

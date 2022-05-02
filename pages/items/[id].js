@@ -41,6 +41,14 @@ export async function getServerSideProps(context) {
   )
 
   const { item } = await getItemById(context.params.id)
+  if (!item) {
+    return {
+      redirect: {
+        destination: '/404',
+        permanent: true,
+      },
+    }
+  }
   return {
     props: { item },
   }

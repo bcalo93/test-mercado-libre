@@ -91,6 +91,10 @@ export default class ItemController {
     return this.normalizeCategories(path_from_root)
   }
 
+  normalizeCategories(pathFromRoot) {
+    return pathFromRoot.map((category) => category.name)
+  }
+
   normalizeCommonProps(item) {
     return {
       id: item.id,
@@ -120,9 +124,5 @@ export default class ItemController {
       sold_quantity: item.sold_quantity,
       description: plain_text,
     }
-  }
-
-  normalizeCategories(pathFromRoot) {
-    return pathFromRoot.map((category) => category.name)
   }
 }
