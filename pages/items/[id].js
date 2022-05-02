@@ -5,7 +5,7 @@ import styles from './itemPage.module.scss'
 
 export default function ItemPage({ item }) {
   return (
-    <Layout>
+    <Layout breadcrumbs={item.categories}>
       <article className={styles['item']}>
         <img
           className={styles['item-picture']}

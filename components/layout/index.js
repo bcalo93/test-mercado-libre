@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import classNames from 'classnames'
 import Header from '../header'
 import styles from './layout.module.scss'
+import Breadcrumbs from '../breadcrumbs'
 
-export default function Layout({ children }) {
+export default function Layout({ children, breadcrumbs }) {
   return (
     <>
       <Head>
@@ -13,10 +13,9 @@ export default function Layout({ children }) {
       <Header />
       <main className={styles.main}>
         {children ? (
-          <div
-            className={classNames(styles['container'], styles['content-box'])}
-          >
-            {children}
+          <div className={styles.container}>
+            {breadcrumbs ? <Breadcrumbs breadcrumbs={breadcrumbs} /> : ''}
+            <div className={styles['content-box']}>{children}</div>
           </div>
         ) : (
           ''

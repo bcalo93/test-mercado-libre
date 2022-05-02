@@ -1,0 +1,14 @@
+@use '../../styles/spacing.module.scss' as spacing;
+@use '../../styles/typography.module.scss' as typography;
+
+.breadcrumbs {
+  margin: spacing.$x-large-space 0;
+  display: flex;
+  gap: spacing.$small-space;
+  font-size: typography.$text-large;
+  color: #989898;
+}
+
+.breadrcumb-item:last-of-type {
+  font-weight: typography.$font-weight-bold;
+}
