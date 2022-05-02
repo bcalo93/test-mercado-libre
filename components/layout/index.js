@@ -12,9 +12,15 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <main className={styles.main}>
-        <div className={classNames(styles['container'], styles['content-box'])}>
-          {children}
-        </div>
+        {children ? (
+          <div
+            className={classNames(styles['container'], styles['content-box'])}
+          >
+            {children}
+          </div>
+        ) : (
+          ''
+        )}
       </main>
     </>
   )

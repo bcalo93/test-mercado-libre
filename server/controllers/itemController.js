@@ -1,10 +1,8 @@
 import fetch from 'node-fetch'
 import HttpError from '../errors/httpError.js'
 
-const SEARCH_API_URL =
-  'https://api.mercadolibre.com/sites/MLA/search?limit=4&q='
-
-const ITEMS_API_URL = 'https://api.mercadolibre.com/items'
+const API_DOMAIN = 'https://api.mercadolibre.com'
+const SEARCH_API_URL = `${API_DOMAIN}/sites/MLA/search?limit=4&q=`
 
 // TODO DELETE
 const DUMMY = {
@@ -64,6 +62,24 @@ const DUMMY = {
   ],
 }
 
+const DUMMY_DETAILS = {
+  item: {
+    id: 'MLA1116769053',
+    title: 'Apple iPhone SE (2da Generación) 128 Gb - (product)red',
+    price: {
+      currency: 'ARS',
+      amount: 138513,
+    },
+    picture: 'http://http2.mlstatic.com/D_607789-MLA46552310113_062021-I.jpg',
+    free_shipping: true,
+    condition: 'new',
+    sold_quantity: 5,
+    description:
+      'El iPhone SE es el iPhone de 4,7 pulgadas más potente hasta ahora (1). Tiene el chip A13 Bionic, que ofrece un rendimiento increíble en apps, juegos y fotos. Viene con modo Retrato y seis efectos de iluminación para tomar retratos con calidad de estudio, HDR Inteligente de última generación que ofrece un nivel de detalle sorprendente en las luces y las sombras de las fotos, video 4K de calidad cinematográfica y todas las funcionalidades avanzadas de iOS. Además de una batería de larga duración (2) y resistencia al agua (3). Tiene todo lo que te gusta del iPhone en un diseño compacto que te encantará.\n\n\nAvisos Legales\n(1) El tamaño de la pantalla se mide en diagonal.\n(2) La duración de la batería varía según el uso y la configuración.\n(3) El iPhone SE es resistente a las salpicaduras, al agua y al polvo, y fue probado en condiciones de laboratorio controladas; el iPhone SE tiene una clasificación IP67 según la norma IEC 60529 (hasta 30 minutos a una profundidad máxima de 1 metro). La resistencia a las salpicaduras, al agua y al polvo no es una condición permanente, y podría disminuir como consecuencia del uso normal. No intentes cargar un iPhone mojado; consulta el manual del usuario para ver las instrucciones de limpieza y secado. La garantía no cubre daños producidos por líquidos.\n(4) Los cargadores inalámbricos Qi se venden por separado.',
+    categories: ['Celulares y Teléfonos', 'Celulares y Smartphones'],
+  },
+}
+
 export default class ItemController {
   async getItems(req, res, next) {
     const { search } = req.query
@@ -74,12 +90,12 @@ export default class ItemController {
 
     try {
       const { results } = await this.makeRequest(`${SEARCH_API_URL}${search}`)
-      res.json({
-        items: results.map(this.normalizeSearchProps.bind(this)),
-      })
+      // res.json({
+      //   items: results.map(this.normalizeSearchProps.bind(this)),
+      // })
 
       // TODO: DELETE
-      //res.json(DUMMY)
+      res.json(DUMMY)
       next()
     } catch (error) {
       next(error)
@@ -92,13 +108,17 @@ export default class ItemController {
       next(new HttpError('missing id in the path', 400))
       return
     }
-
+    const itemApiUrl = `${API_DOMAIN}/items/${id}`
     try {
-      const [item, itemDescription] = await Promise.all([
-        this.makeRequest(`${ITEMS_API_URL}/${id}`),
-        this.makeRequest(`${ITEMS_API_URL}/${id}/description`),
-      ])
-      res.json({ item: this.normalizeItemProps(item, itemDescription) })
+      // const [item, itemDescription] = await Promise.all([
+      //   this.makeRequest(itemApiUrl),
+      //   this.makeRequest(`${itemApiUrl}/description`),
+      // ])
+
+      // const { path_from_root } = await this.makeRequest(`${API_DOMAIN}/categories/${item.category_id}`)
+      // res.json({ item: { ...this.normalizeItemProps(item, itemDescription), categories: this.normalizeCategories(path_from_root) } })
+
+      res.json(DUMMY_DETAILS)
       next()
     } catch (error) {
       next(error)
@@ -144,5 +164,9 @@ export default class ItemController {
       sold_quantity: item.sold_quantity,
       description: plain_text,
     }
+  }
+
+  normalizeCategories(pathFromRoot) {
+    return pathFromRoot.map(({ name }) => name)
   }
 }

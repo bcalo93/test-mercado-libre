@@ -1,8 +1,15 @@
 import Price from '../price'
 import styles from './itemDetail.module.scss'
 
+const DEFAULT_CONDITION = 'Sin especificar'
+const CONDITION_TO_LABEL = {
+  not_specified: DEFAULT_CONDITION,
+  used: 'Usado',
+  new: 'Nuevo',
+}
+
 const normalizeCondition = (condition) =>
-  condition === 'new' ? 'Nuevo' : 'Usado'
+  CONDITION_TO_LABEL[condition] || DEFAULT_CONDITION
 
 export default function ItemDetail({ condition, soldQuantity, title, price }) {
   const { amount, currency } = price
