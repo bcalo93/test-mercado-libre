@@ -24,6 +24,7 @@ export default function ItemDetail({ condition, soldQuantity, title, price }) {
         amount={amount}
         currency={currency}
       />
+      <button className={styles['item-detail_button']}>Comprar</button>
     </div>
   )
 }

@@ -3,6 +3,8 @@
 @use '../../styles/breakpoints.module.scss' as breakpoints;
 
 .item-detail {
+  display: flex;
+  flex-direction: column;
   color: #363636;
 }
 
@@ -14,10 +16,28 @@
 
 .item-detail_price {
   font-size: typography.$text-large-5xl;
+  margin-bottom: spacing.$x4-large-space;
+}
+
+.item-detail_button {
+  background-color: #4561ff;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  font-size: typography.$text-large-xl;
+  padding: spacing.$large-space;
+
+  &:hover {
+    background-color: #2968c8;
+  }
 }
 
 @media (max-width: breakpoints.$small-mobile-breakpoint) {
   .item-detail_title {
+    margin-bottom: spacing.$medium-space;
+  }
+
+  .item-detail_price {
     margin-bottom: spacing.$medium-space;
   }
 }
