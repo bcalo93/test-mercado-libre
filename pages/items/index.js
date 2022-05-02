@@ -6,7 +6,7 @@ import ItemCard from '../../components/itemCard'
 import styles from './items.module.scss'
 
 export default function ItemsPage() {
-  const [items, setItems] = useState()
+  const [data, setData] = useState()
   const router = useRouter()
 
   useEffect(() => {
@@ -14,20 +14,22 @@ export default function ItemsPage() {
     if (!router.isReady || !search) {
       return
     }
-    searchItems(search).then((data) => setItems(data.items))
+    searchItems(search).then(setData)
   }, [router.isReady, router.query.search])
 
-  return items ? (
-    <Layout>
-      <div className={styles['items-list']}>
-        {items?.map((item) => (
-          <div key={item.id}>
-            <ItemCard item={item} />
-          </div>
-        ))}
-      </div>
+  return (
+    <Layout breadcrumbs={data?.categories}>
+      {data?.items ? (
+        <div className={styles['items-list']}>
+          {data.items?.map((item) => (
+            <div key={item.id}>
+              <ItemCard item={item} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        ''
+      )}
     </Layout>
-  ) : (
-    ''
   )
 }
