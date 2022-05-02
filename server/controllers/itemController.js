@@ -16,10 +16,10 @@ export default class ItemController {
       const { results } = await this.makeRequest(`${SEARCH_API_URL}${search}`)
       const categoryId = this.getMostRelevantCategory(results)
 
-      res.json({
+      res.body = {
         categories: await this.fetchCategoryData(categoryId),
         items: results.map(this.normalizeSearchProps.bind(this)),
-      })
+      }
 
       next()
     } catch (error) {
@@ -40,12 +40,12 @@ export default class ItemController {
         this.makeRequest(`${itemApiUrl}/description`),
       ])
 
-      res.json({
+      res.body = {
         item: {
           ...this.normalizeItemProps(item, itemDescription),
           categories: await this.fetchCategoryData(item.category_id),
         },
-      })
+      }
 
       next()
     } catch (error) {
