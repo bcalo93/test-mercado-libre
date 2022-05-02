@@ -15,6 +15,7 @@
 .card-picture {
   height: auto;
   width: 15rem;
+  flex-shrink: 0;
 }
 
 .card-detail {
@@ -67,7 +68,7 @@
 
 @media (max-width: breakpoints.$mobile-breakpoint) {
   .card-picture {
-    min-width: 11rem;
+    width: 11rem;
   }
 
   .card-item_location {

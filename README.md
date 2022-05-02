@@ -1,4 +1,4 @@
-This project uses [nextjs](https://nextjs.org/).
+This project uses [nextjs](https://nextjs.org/) to support the client application.
 
 ## Getting Started
 First of all install the dependencies:
