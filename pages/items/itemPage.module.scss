@@ -17,6 +17,7 @@
 
 .item-description {
   font-weight: typography.$font-weight-normal;
+  overflow: hidden;
 
   h2 {
     color: #363636;
@@ -26,6 +27,7 @@
   p {
     color: #989898;
     font-size: typography.$text-large;
+    white-space: break-spaces;
   }
 }
 
