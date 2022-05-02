@@ -10,7 +10,6 @@ function Crumb({ crumb, separator, isLast }) {
 }
 
 export default function Breadcrumbs({ breadcrumbs, separator = '>' }) {
-  console.log(breadcrumbs)
   return (
     <div className={styles.breadcrumbs}>
       {breadcrumbs.map((crumb, index) => (

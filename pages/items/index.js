@@ -8,9 +8,9 @@ import styles from './items.module.scss'
 export default function ItemsPage() {
   const [data, setData] = useState()
   const router = useRouter()
+  const { search } = router.query
 
   useEffect(() => {
-    const { search } = router.query
     if (!router.isReady || !search) {
       return
     }
@@ -18,7 +18,10 @@ export default function ItemsPage() {
   }, [router.isReady, router.query.search])
 
   return (
-    <Layout breadcrumbs={data?.categories}>
+    <Layout
+      pageTitle={search && `${search} | MercadoLibre`}
+      breadcrumbs={data?.categories}
+    >
       {data?.items ? (
         <div className={styles['items-list']}>
           {data.items?.map((item) => (
