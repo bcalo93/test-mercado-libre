@@ -7,14 +7,14 @@ import styles from './searchBox.module.scss'
 export default function SearchBox({ className, placeholder }) {
   const [searchTerm, setSearchTerm] = useState('')
   const router = useRouter()
+  const { search } = router.query
 
   useEffect(() => {
-    const { search } = router.query
     if (!router.isReady || !search) {
       return
     }
     setSearchTerm(search)
-  }, [router.isReady])
+  }, [router.isReady, search])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -39,7 +39,12 @@ export default function SearchBox({ className, placeholder }) {
         onChange={handleTermChange}
       />
       <button type="submit" className={styles['form-search-button']}>
-        <Image src="/images/ic_Search.png" width="16" height="16" />
+        <Image
+          src="/images/ic_Search.png"
+          alt="search button"
+          width="16"
+          height="16"
+        />
       </button>
     </form>
   )

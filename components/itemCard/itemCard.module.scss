@@ -4,7 +4,7 @@
 
 .card {
   display: flex;
-  gap: spacing.$small-space;
+  gap: spacing.$x2-large-space;
 
   &:hover .card-item_title {
     color: #0b5cab;

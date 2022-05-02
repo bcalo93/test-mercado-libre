@@ -15,7 +15,7 @@ export default function ItemsPage() {
       return
     }
     searchItems(search).then(setData)
-  }, [router.isReady, router.query.search])
+  }, [router.isReady, search])
 
   return (
     <Layout

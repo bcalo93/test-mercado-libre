@@ -35,6 +35,11 @@ export default function ItemPage({ item }) {
 }
 
 export async function getServerSideProps(context) {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=30, stale-while-revalidate=59'
+  )
+
   const { item } = await getItemById(context.params.id)
   return {
     props: { item },
